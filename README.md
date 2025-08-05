@@ -1,4 +1,5 @@
 This script will model any classically dynamic system using the calculus of variations. It calculates the kinetic and potential energy in an arbitrary coordinate system and prepares the constrained/unconstrained Euler Lagrange equations through a built in function with a display.
+This readme has a verbose section on the pure functions that start the code, just in case this gets abandoned and I forget how it works. Skip to the very end if you just want to know what these functions do.
 
 DERIVATIVES
 This script assumes that all total derivatives are total time derivatives. We assume that the coordinates which describe our system are independent of each other in order to construct the Euler Lagrange equations anyhow, and so this assumption isn't bad, it just may surprise you that Dt[anything] shows up in dot notation.
@@ -55,9 +56,11 @@ Intg: Returns the integrand from some expression
 Intl: Returns the limits of integration
 Mag: Gives the magnitude
 RP*: Replace. RP[Ex,{x0,y0},{xf,yf}] lets all instances of x0 and y0 -> xf and yf. %%%%% MVP %%%%%
+RPT*: Same as RP, you can just use it as a tag, like expression /.RPT[] if it makes things more readable
 SS**: Solve but doesn't return the stupid {x->whatever} output that solve does. Tab through multiple solutions with the third argument.
 S***: Simplify at varying levels.
-g21***: Crude simplification tool. Goes to 1.
+g21***: Crude simplification tool. Goes to 1. Automatically recognizes constants in an expression if they have the constant attribute.
+g20***: Crude simplification tool. Goes to 0.
 Trm: Gives the list of addends in and expression.
 Vars**: Returns the most fundamental variables in an expression. Uses differentiation to get rid of constants if the second input argument is null or 0.
 d: Total derivative.
